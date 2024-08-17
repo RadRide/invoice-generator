@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\invoicer-backend-prot.props" />
+</Project>

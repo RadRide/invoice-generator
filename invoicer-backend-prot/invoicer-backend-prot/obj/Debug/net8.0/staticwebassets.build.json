@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "CN5yTdYmyUeP6kLvrqMjSbNSFj+798Gr937HjhYRtOs=",
+  "Source": "invoicer-backend-prot",
+  "BasePath": "_content/invoicer-backend-prot",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

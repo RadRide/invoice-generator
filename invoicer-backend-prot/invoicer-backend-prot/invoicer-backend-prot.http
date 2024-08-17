@@ -1,0 +1,6 @@
+@invoicer_backend_prot_HostAddress = http://localhost:5061
+
+GET {{invoicer_backend_prot_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
