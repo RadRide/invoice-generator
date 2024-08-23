@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("invoicer-backend-prot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1070d6c22de8225f53ea2763e063656d38f6d414")]
 [assembly: System.Reflection.AssemblyProductAttribute("invoicer-backend-prot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("invoicer-backend-prot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

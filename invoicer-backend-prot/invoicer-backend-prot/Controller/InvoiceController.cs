@@ -46,7 +46,7 @@ public class InvoiceController : ControllerBase
         var request = new Request();
         request.Message = message;
 
-        var response = await AiApi.SendToAiAsync(request);
+        var response = await GeminiApi.SendToAiAsync(request);
         
         if (response is null)
         {

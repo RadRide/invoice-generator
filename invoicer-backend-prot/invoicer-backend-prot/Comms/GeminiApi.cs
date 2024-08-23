@@ -1,12 +1,12 @@
-﻿using System.Net.Http.Headers;
-using System.Text;
+﻿using GenerativeAI.Models;
+using GenerativeAI.Tools;
 using invoicer_backend_prot.Models;
-using Newtonsoft.Json;
 
 namespace invoicer_backend_prot.Comms;
 
-public class AiApi
+public class GeminiApi
 {
+    private static readonly string _geminiToken = "AIzaSyDg7TFya3CMbsKuFQugMJrwnfrcakbEn5U";
     private static readonly string _instructions = "Your job is to generate a markup text for an invoice or a receipt depending on the user input. " +
                                           "You have 7 markup tags options: title, to, from, currency, item, quantity, cost. " +
                                           "An this what each means: " +
@@ -28,44 +28,18 @@ public class AiApi
                                           "the invoice items are a youtube videos summary generator that cost 2500$, 3 auditing systems that cost each 500 dollars. " +
                                           "Ai: <title>AI Automation Invoice</title> <to>Mr. Assaf Mrad</to> <from>Glanis AI</from> <currency>$</currency> <item>Youtube Videos Summary Generator</item> <quantity>1</quantity> <cost>2500</cost> " +
                                           "<item>Auditing System</item> <quantity>3</quantity> <cost>500</cost>";
-    private static readonly string _url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=";
-    private static readonly string _geminiToken = "AIzaSyDg7TFya3CMbsKuFQugMJrwnfrcakbEn5U";
-    private static readonly HttpClient _client = new HttpClient();
 
     public static async Task<Response?> SendToAiAsync(Request request)
     {
-        _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Content-Type", "application/json");
-        
-        var body = new
-        {
-            // model = "llama-3",
-            contents = new object[]
-            {
-                new { role = "system", parts = new[] { new { text = _instructions } } },
-                new { role = "user", parts = new[] { new { text = request.Message } } }
-            },
-            n_keep = -1,
-            cache_prompt = true
-        };
+        var model = new Gemini15Flash(_geminiToken);
+        model.SystemInstruction = _instructions;
 
-        var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-        var response = await _client.PostAsync(_url + _geminiToken, content);
-        Console.WriteLine(response.StatusCode);
-
-        if (response.IsSuccessStatusCode)
-        {
-            var responseString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseString);
-            string responseContent = responseString.Split(new[] { "\"content\":\"" }, StringSplitOptions.None)[1].Split('\"')[0];
-            
-            // dynamic responseObject = JsonConvert.DeserializeObject(responseString);
-            // Console.WriteLine(responseContent);
-            var responseDone = new Response(responseContent);
-            return responseDone;
-        }
-        else
+        var resp = await model.GenerateContentAsync(_instructions + request.Message);
+        if (string.IsNullOrWhiteSpace(resp))
         {
             return null;
         }
+        Console.WriteLine(resp);
+        return new Response(resp);
     }
 }

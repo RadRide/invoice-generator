@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Assaf Mrad\\Desktop\\RiderProjects\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj": {}
+    "C:\\Users\\Assaf Mrad\\Desktop\\Github Repo\\invoice-generator\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Assaf Mrad\\Desktop\\RiderProjects\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj": {
+    "C:\\Users\\Assaf Mrad\\Desktop\\Github Repo\\invoice-generator\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Assaf Mrad\\Desktop\\RiderProjects\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj",
+        "projectUniqueName": "C:\\Users\\Assaf Mrad\\Desktop\\Github Repo\\invoice-generator\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj",
         "projectName": "invoicer-backend-prot",
-        "projectPath": "C:\\Users\\Assaf Mrad\\Desktop\\RiderProjects\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj",
+        "projectPath": "C:\\Users\\Assaf Mrad\\Desktop\\Github Repo\\invoice-generator\\invoicer-backend-prot\\invoicer-backend-prot\\invoicer-backend-prot.csproj",
         "packagesPath": "C:\\Users\\Assaf Mrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Assaf Mrad\\Desktop\\RiderProjects\\invoicer-backend-prot\\invoicer-backend-prot\\obj\\",
+        "outputPath": "C:\\Users\\Assaf Mrad\\Desktop\\Github Repo\\invoice-generator\\invoicer-backend-prot\\invoicer-backend-prot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Google_GenerativeAI": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"
